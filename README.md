@@ -1,5 +1,4 @@
 # MP06:Sorting Out Sorting
- 
 
 ## Groups
 ```

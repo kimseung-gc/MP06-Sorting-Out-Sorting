@@ -1,10 +1,8 @@
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigInteger;
 import java.util.Comparator;
+import java.util.Random;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -97,4 +95,24 @@ public class SortTester {
     sorter.sort(unsorted, comp);
     assertArrayEquals(unsorted, sorted);
   } // magnitudeOfIntTest
+
+  @Test
+  public void hugeArrayTest(){
+    final int NUM = 40000000;
+    Long[] sorted = new Long[NUM];
+    for(Long i = Long.valueOf(0); i < NUM; i++){
+      sorted[(int)i.longValue()] = 2*i;
+    } // for
+    Long[] unsorted = Arrays.copyOf(sorted, NUM);
+    Random rand = new Random();
+    for(Long i = Long.valueOf(0); i < NUM/2; i++){
+      int j = rand.nextInt(NUM/2);
+      Long temp = unsorted[j];
+      unsorted[j] = unsorted[NUM- j-1];
+      unsorted[NUM- j-1] = temp;
+    } // for
+    Comparator<Long> comp = (x, y) -> x.compareTo(y);
+    sorter.sort(unsorted, comp);
+    assertArrayEquals(unsorted, sorted);
+  } // hugeArrayTest()
 } // class SortTester

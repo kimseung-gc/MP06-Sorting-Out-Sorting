@@ -61,7 +61,7 @@ public class KimHyeonSort implements Sorter{
   } // sort(T[], Comparator<? super T>)
 
   /**
-   * It runs the statistice for the given array and comparator.
+   * It runs the statistics for the given array and comparator.
    * @param <T>
    * @param values
    * @param order

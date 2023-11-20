@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/shk2003/Desktop/수업용 파일들/그리넬/2학년/junit-platform-console-standalone-1.10.0.jar"
+    ]
+}

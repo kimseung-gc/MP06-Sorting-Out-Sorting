@@ -66,36 +66,36 @@ public class MergeSort implements Sorter {
     if(vals == null){
       return;
     }
-    /* middle index is, by definition, (lo+hi)/2 rounded down */
+    // middle index is, by definition, (lo+hi)/2 rounded down
     int mid = (lo + hi)/2;
-    /* tempLen is the length of the sub array that the code is looking at */
+    // tempLen is the length of the sub array that the code is looking at
     int tempLen = hi-lo;
-    /* Base case */
+    // Base case
     if(tempLen == 0  || tempLen == 1){
-      /* When there is nothing more to call recursively, return vals */
+      // When there is nothing more to call recursively, return vals
       return;
     }
-    /* Sort the first half of the vals recursively */
+    // Sort the first half of the vals recursively
     merge(vals, mid, hi, comparator);
-    /* Sort the latter half of the vals recursively */
+    // Sort the latter half of the vals recursively
     merge(vals, lo, mid, comparator);
-    /* returning array, as it is a generic array, I used Arrays.copyOf() function */
+    // returning array, as it is a generic array, I used Arrays.copyOf() function
     T[] ret = Arrays.copyOfRange(vals, lo, hi);
-    /* right half of the array by index */
+    // right half of the array by index
     int r = (int)ret.length/2;
-    /* left half of the array by index */
+    // left half of the array by index
     int l = 0;
-    /* by iterating a for loop, sort the ret */
+    // by iterating a for loop, sort the ret
     for(int i = lo; i < hi; i++){
-      /* When out of index, append the rest of the list at the end of ret */
+      // When out of index, append the rest of the list at the end of ret
       vals[i] = (((r == hi-lo) && (l < mid-lo))?                    ret[l++] : 
                 (((l == mid-lo) && (r < hi-lo))?                    ret[r++] :
-      /* By using the comparator, sort the vals (if ret[l] ≤ ret[r], vals[i] = ret[l]) */
+      // By using the comparator, sort the vals (if ret[l] ≤ ret[r], vals[i] = ret[l])
                   (comparator.compare(ret[l], ret[r]) <= 0)?        ret[l++] : 
-      /* Else, vals[i] = ret[r] */
+      // Else, vals[i] = ret[r]
                                                                     ret[r++]));
     } // for
-    /* return the sorted array */
+    // return the sorted array
     return;
   } // merge
 } // class MergeSort
