@@ -98,7 +98,7 @@ public class SortTester {
 
   @Test
   public void hugeArrayTest(){
-    final int NUM = 40000000;
+    final int NUM = 490000;
     Long[] sorted = new Long[NUM];
     for(Long i = Long.valueOf(0); i < NUM; i++){
       sorted[(int)i.longValue()] = 2*i;

@@ -7,4 +7,5 @@
 ```
 Created a huge array test for the sort tester with the type long.
 Changed "Statistice" to "Statistics" in line 64 of KimHyeonSort.java
+Created a util class and made mergesort with a better design decision.
 ```

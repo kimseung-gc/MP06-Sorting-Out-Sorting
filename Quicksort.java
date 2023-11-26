@@ -1,5 +1,7 @@
 import java.util.Comparator;
 
+import Utils.MP6Util;
+
 /**
  * MergeSort and QuickSort
  * https://github.com/seunghk1206/CSC207/tree/Labs/Class2324/lab-merge-sort
@@ -97,7 +99,7 @@ public class Quicksort implements Sorter {
     /* midpoint as the initial pivot location */
     int pivotLoc = (lb+ub)/2;
     /* Send pivot value to the lower bound */
-    swap(arr, lb, pivotLoc);
+    MP6Util.swap(arr, lb, pivotLoc);
     /* run a loop as long as large index is bigger than small index */
     while(large > small){
       /* When small is correct in terms of how they are smaller than pivot value, pass this index */
@@ -109,28 +111,14 @@ public class Quicksort implements Sorter {
       /* Otherwise, the value at large index must be smaller than pivot value and the value at 
          small index must be bigger than or equal to pivot value, so swap them */
       }else{
-        swap(arr, small, large);
+        MP6Util.swap(arr, small, large);
       } // if/else
     } // while
     /* Lastly, compare the last index (large). If the value at this index is smaller than or equal to 
        pivot value, swap pivot value with large. Otherwise, swap with small-1. */
     pivotLoc = (compare.compare(arr[lb], arr[large]) >= 0)? large : small-1;
-    swap(arr, pivotLoc, lb);
+    MP6Util.swap(arr, pivotLoc, lb);
     /* Return the pivot location */
     return pivotLoc;
   } // partition
-
-  /**
-   * This function swaps the item in generic arr at index i and j.
-   * @param <T>
-   * @param arr
-   * @param i
-   * @param j
-   */
-  private <T> void swap(T[] arr, int i, int j){
-    T temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-    return;
-  } // swap
 } // class Quicksort
