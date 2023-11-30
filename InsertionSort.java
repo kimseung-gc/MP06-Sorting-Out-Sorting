@@ -6,7 +6,6 @@ import java.util.Comparator;
  * @author Seunghyeon (Hyeon) kim
  */
 
-
 public class InsertionSort implements Sorter {
 
   // +--------+------------------------------------------------------
@@ -34,21 +33,26 @@ public class InsertionSort implements Sorter {
 
   @Override
   /**
-   * Sorting function using the insertion sort method. Generally has O(n log n) speed (similar to quicksort).
+   * Sorting function using the insertion sort method. Generally has O(n log n)
+   * speed (similar to quicksort).
+   * 
    * @param <T>
    * @param values
    * @param compare
    */
   public <T> void sort(T[] values, Comparator<? super T> order) {
-    if(values == null){
+    if (values == null) {
       return;
     }
-    for(int curInd = 1; curInd < values.length; curInd++){
+    for (int curInd = 1; curInd < values.length; curInd++) {
       int prevInd = curInd - 1;
       int j = prevInd;
-      while ((j >= 0) && (order.compare(values[j+1], values[j])<0)) {
-        /* When next index of j is smaller than j, swap them until values[j] find their space */
-        swap(values, j+1, j);
+      while ((j >= 0) && (order.compare(values[j + 1], values[j]) < 0)) {
+        /*
+         * When next index of j is smaller than j, swap them until values[j] find their
+         * space
+         */
+        swap(values, j + 1, j);
         j--;
       } // while
     } // for
@@ -56,12 +60,13 @@ public class InsertionSort implements Sorter {
 
   /**
    * This function swaps the item in generic arr at index i and j.
+   * 
    * @param <T>
    * @param arr
    * @param i
    * @param j
    */
-  private <T> void swap(T[] arr, int i, int j){
+  private <T> void swap(T[] arr, int i, int j) {
     T temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;

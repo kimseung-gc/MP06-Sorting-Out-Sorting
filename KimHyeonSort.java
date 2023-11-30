@@ -6,7 +6,7 @@ import Utils.MP6Util;
  * https://github.com/seunghk1206/CSC207/tree/Labs/Class2324/lab-merge-sort
  */
 
-public class KimHyeonSort implements Sorter{
+public class KimHyeonSort implements Sorter {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
@@ -37,24 +37,25 @@ public class KimHyeonSort implements Sorter{
   @Override
   /**
    * Sorting function using my own sorting method. Generally has O(n log n) speed.
+   * 
    * @param <T>
    * @param values
    * @param order
    */
   public <T> void sort(T[] values, Comparator<? super T> order) {
     Sorter sorter;
-    if(values == null){
+    if (values == null) {
       return;
     } // if
     runStat(values, order);
-    if(this.ordered){
+    if (this.ordered) {
       return;
     } // if
-    if(this.reversed){
+    if (this.reversed) {
       MP6Util.reverse(values);
       return;
     } // if
-    if(this.insertionSteps < this.mergeSteps){
+    if (this.insertionSteps < this.mergeSteps) {
       sorter = new InsertionSort();
       sorter.sort(values, order);
       return;
@@ -65,22 +66,23 @@ public class KimHyeonSort implements Sorter{
 
   /**
    * It runs the statistics for the given array and comparator.
+   * 
    * @param <T>
    * @param values
    * @param order
    */
-  private <T> void runStat(T[] values, Comparator<? super T> order){
+  private <T> void runStat(T[] values, Comparator<? super T> order) {
     this.ordered = true;
     this.reversed = true;
-    for(int i = 1; i < values.length; i++){
-      if(order.compare(values[i-1], values[i]) > 0){
+    for (int i = 1; i < values.length; i++) {
+      if (order.compare(values[i - 1], values[i]) > 0) {
         this.ordered = false;
         this.insertionSteps += i;
       } // if
-      if(order.compare(values[i-1], values[i]) < 0){
+      if (order.compare(values[i - 1], values[i]) < 0) {
         this.reversed = false;
       } // if
     } // for
-    this.mergeSteps = 2 * values.length * (int)(Math.log(values.length)/ Math.log(2));
+    this.mergeSteps = 2 * values.length * (int) (Math.log(values.length) / Math.log(2));
   } // runStat(T[] Comparator<? super T>)
 } // class KimHyeonSort

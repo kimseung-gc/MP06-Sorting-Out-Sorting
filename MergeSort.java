@@ -57,6 +57,7 @@ public class MergeSort implements Sorter {
    * It sorts the vals from lo to hi with a given comparator. A clone of vals has
    * to be given as temp in order for an helper array reference for merge sorting
    * the vals.
+   * 
    * @param <T>
    * @param vals
    * @param temp
@@ -89,8 +90,9 @@ public class MergeSort implements Sorter {
 
   /**
    * Merge the values from positions [lo..mid) and [mid..hi) back into
-   * the same part of the array. This is a helper function for the sort 
+   * the same part of the array. This is a helper function for the sort
    * function.
+   * 
    * @pre vals must be the unsorted list, and a valid comparator for
    *      generic type <T>. The lo and hi are the lower index and higher
    *      index which the function sorts [lo, hi) region.
@@ -109,9 +111,9 @@ public class MergeSort implements Sorter {
       // vals[i] = helperArr[l])
           (comparator.compare(helperArr[l], helperArr[r]) <= 0) ? helperArr[l++] :
           // Else, vals[i] = helperArr[r]
-          helperArr[r++]));
+              helperArr[r++]));
     } // for
-    if(hi-lo != vals.length){
+    if (hi - lo != vals.length) {
       // copy and paste the partially sorted array
       MP6Util.copyToRange(vals, helperArr, lo, hi);
     } // if

@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 /**
- * Something that fails to sort.  Intended primarily to allow us to wath
+ * Something that fails to sort. Intended primarily to allow us to wath
  * tests fail.
  *
  * @author Samuel A. Rebelsky
