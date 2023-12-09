@@ -4,6 +4,7 @@ import Utils.MP6Util;
 /**
  * MergeSort and QuickSort
  * https://github.com/seunghk1206/CSC207/tree/Labs/Class2324/lab-merge-sort
+ * @author Seunghyeon (Hyeon) Kim
  */
 
 public class KimHyeonSort implements Sorter {
