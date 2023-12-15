@@ -91,50 +91,40 @@ public class Quicksort implements Sorter {
    */
   private <T> int partition(T[] arr, Comparator<? super T> compare, int lb, int ub) {
     if (lb == ub - 1) {
-      /*
-       * When there is no more to partition, return the lb (the only possible index)
-       */
+       // When there is no more to partition, return the lb (the only possible index)
       return lb;
     } // if
-    /* Declare small and large as their initial values */
+    // Declare small and large as their initial values
     int small = lb + 1;
     int large = ub - 1;
 
-    /* midpoint as the initial pivot location */
+    // midpoint as the initial pivot location
     int pivotLoc = (lb + ub) / 2;
-    /* Send pivot value to the lower bound */
+    // Send pivot value to the lower bound
     MP6Util.swap(arr, lb, pivotLoc);
-    /* run a loop as long as large index is bigger than small index */
+    // run a loop as long as large index is bigger than small index
     while (large > small) {
-      /*
-       * When small is correct in terms of how they are smaller than pivot value, pass
-       * this index
-       */
+      // When small is correct in terms of how they are smaller than pivot value, pass
+      // this index
       if (compare.compare(arr[small], arr[lb]) <= 0) {
         small++;
       } else if (compare.compare(arr[lb], arr[large]) < 0) {
-        /*
-         * When large is correct in terms of how they are bigger than pivot value, pass
-         * this index
-         */
+        // When large is correct in terms of how they are bigger than pivot value, pass
+        // this index
         large--;
-        /*
-         * Otherwise, the value at large index must be smaller than pivot value and the
-         * value at
-         * small index must be bigger than or equal to pivot value, so swap them
-         */
+        // Otherwise, the value at large index must be smaller than pivot value and the
+        // value at
+        // small index must be bigger than or equal to pivot value, so swap them
       } else {
         MP6Util.swap(arr, small, large);
       } // if/else
     } // while
-    /*
-     * Lastly, compare the last index (large). If the value at this index is smaller
-     * than or equal to
-     * pivot value, swap pivot value with large. Otherwise, swap with small-1.
-     */
+    // Lastly, compare the last index (large). If the value at this index is smaller
+    // than or equal to
+    // pivot value, swap pivot value with large. Otherwise, swap with small-1.
     pivotLoc = (compare.compare(arr[lb], arr[large]) >= 0) ? large : small - 1;
     MP6Util.swap(arr, pivotLoc, lb);
-    /* Return the pivot location */
+    // Return the pivot location 
     return pivotLoc;
   } // partition
 } // class Quicksort
