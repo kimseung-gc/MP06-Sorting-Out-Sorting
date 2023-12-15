@@ -91,7 +91,7 @@ public class Quicksort implements Sorter {
    */
   private <T> int partition(T[] arr, Comparator<? super T> compare, int lb, int ub) {
     if (lb == ub - 1) {
-       // When there is no more to partition, return the lb (the only possible index)
+      // When there is no more to partition, return the lb (the only possible index)
       return lb;
     } // if
     // Declare small and large as their initial values
@@ -124,7 +124,7 @@ public class Quicksort implements Sorter {
     // pivot value, swap pivot value with large. Otherwise, swap with small-1.
     pivotLoc = (compare.compare(arr[lb], arr[large]) >= 0) ? large : small - 1;
     MP6Util.swap(arr, pivotLoc, lb);
-    // Return the pivot location 
+    // Return the pivot location
     return pivotLoc;
   } // partition
 } // class Quicksort
